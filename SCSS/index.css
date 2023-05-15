@@ -20,4 +20,13 @@ body div.container-fluid .myPlaylist {
   background-color: #2d2d2d;
   border-radius: 5px;
   box-shadow: 0px 0px 9px -2px #000000;
+}
+body div.container-fluid .card {
+  background-color: #2d2d2d;
+}
+body div.container-fluid .card h6 {
+  color: white;
+}
+body div.container-fluid .card p {
+  color: #858585;
 }/*# sourceMappingURL=index.css.map */
