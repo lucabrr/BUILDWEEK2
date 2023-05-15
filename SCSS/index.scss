@@ -1,0 +1,27 @@
+@import './mixins/mixins';
+body{
+    div.container-fluid{
+        @include main-content-page-1;
+        div.row{
+                .my-card{
+                    @include my-card;
+                    img{
+                        height: 90%;
+                    }
+                    h1{
+                        font-size: 3.5rem;
+                    }
+                    .light-grey{
+                        background-color: #2d2d2d;
+                        font-size: 1rem;
+                    }
+                }
+            }
+
+        .myPlaylist{
+            background-color: #2d2d2d;
+            border-radius: 5px;
+            box-shadow: 0px 0px 9px -2px #000000;
+        }
+    }
+}
