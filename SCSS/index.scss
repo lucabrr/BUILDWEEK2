@@ -20,9 +20,7 @@ body{
         
     }
 
-
-
-    main>div.container-fluid{
+    main>div.container-fluid.overflow-y-scroll{
 
 
         height: 800px;
@@ -59,4 +57,13 @@ body{
             }
         }
     }
+}
+
+
+.destruction{
+    display: none;
+}
+.bg-custom-artist{
+    background: linear-gradient(0deg, rgba(18,18,18,1) 35%, rgba(32,32,32,1) 67%);
+    
 }
