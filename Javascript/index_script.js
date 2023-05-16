@@ -5,7 +5,7 @@ const destructionMain = () => {
     mainColumn.classList.add('destruction');
 };
 //lancio funzione distruttore pag1
-destructionMain();
+/* destructionMain(); */
 
 //a questo dobbiamo cambiare immagine
 let backgroundArtist = document.querySelector('main>div.container-fluid.bg-img-artist');
@@ -24,24 +24,26 @@ let changeArtistName = () => {
 };
 
 let popularSongContainer = document.getElementById('popularSongContainer');
-const populatePopularSong = () => {
-    for (let i = 0; i <= 4; i++) {
+const populatePopularSong = (p) => {
+    /* for (let i = 0; i <= 4; i++) { */
+    const songArray = Array.from(p);
+    songArray.forEach((canzone) => {
         let popularSong = document.createElement('div');
         let counter = 1;
         popularSong.innerHTML = 
         `
-            <div class="row">
-                <div class="col-1">${counter + i}</div>
-                <div class="col-1">img</div>
-                <div class="col-6">nome</div>
-                <div class="col-2">ascoltatori</div>
-                <div class="col-2">durata</div>
-            </div>
+        <div class="row">
+            <div class="col-1">x</div>
+            <div class="col-1">img</div>
+            <div class="col-6">nome</div>
+            <div class="col-2">ascoltatori</div>
+            <div class="col-2">durata</div>
+        </div>
         `;
         popularSongContainer.appendChild(popularSong);
-    };
+    });
 };
-populatePopularSong();//questa funzione popola la sezione dei brani popolari
+/* populatePopularSong(); *///questa funzione popola la sezione dei brani popolari
 
 //brani che ti piacciono
 let songYouLike = document.getElementById('songYouLike');
@@ -62,4 +64,4 @@ const createLikedSection = () => {
         </div>
     `;
 };
-createLikedSection();
+/* createLikedSection(); */

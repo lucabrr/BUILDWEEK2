@@ -34,7 +34,11 @@ if (e.key === "Enter"){
         })
         .then((canzoni)=>{
             console.log("canzoni dell artista",canzoni);
+            let tracks = canzoni.data;
+            console.log("🚀 ~ file: searchbar_script.js:38 ~ .then ~ tracks:", tracks)
             // QUI DEVI LAVORARE CON L ARRAY
+            destructionMain();
+            populatePopularSong(tracks);
         })
         .catch((err)=>
         console.log(err))
