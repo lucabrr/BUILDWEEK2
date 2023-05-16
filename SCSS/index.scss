@@ -1,7 +1,16 @@
 @import './mixins/mixins';
 body{
+    #searchBar{
+        width: 350px;
+        #searchBarText[placeholder]
+             {
+                color: darkgray;
+              }
+        }
+    
     nav{
         height: 781px;
+        #searchForJs{cursor:pointer;}
     }
     aside{
         height: 781px;
