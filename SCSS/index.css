@@ -56,4 +56,13 @@ body main > div.container-fluid.overflow-y-scroll .card p {
 
 .bg-custom-artist {
   background: linear-gradient(0deg, rgb(18, 18, 18) 35%, rgb(32, 32, 32) 67%);
+}
+
+.bg-img-artist {
+  background-position: center center;
+  background-size: cover;
+}
+
+.songYouLikeImg {
+  width: 100px;
 }/*# sourceMappingURL=index.css.map */
