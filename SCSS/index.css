@@ -1,5 +1,14 @@
+body #searchBar {
+  width: 350px;
+}
+body #searchBar #searchBarText[placeholder] {
+  color: darkgray;
+}
 body nav {
   height: 781px;
+}
+body nav #searchForJs {
+  cursor: pointer;
 }
 body aside {
   height: 781px;
