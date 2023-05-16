@@ -11,17 +11,17 @@ destructionMain();
 let backgroundArtist = document.querySelector('main>div.container-fluid.bg-img-artist');
 console.log("🚀 ~ file: index_script.js:11 ~ backgroundArtist:", backgroundArtist)
 
-/* const backgroundimgArtist = () => {
-    backgroundArtist.style.backgroundImage: "indirizzo immagine";//da modificare appena abbiamo i dati
-}; */
+const backgroundimgArtist = () => {
+    backgroundArtist.style.backgroundImage = "indirizzo immagine";//da modificare appena abbiamo i dati
+};
 
 //per cambiare nome artista
 let artistName = document.getElementById('artistName');
 console.log("🚀 ~ file: index_script.js:20 ~ artistName:", artistName)
 
-/* let changeArtistName = () => {
+let changeArtistName = () => {
     artistName.textContent = "quello che mi passa luca"//da modificare appena abbiamo i dati
-}; */
+};
 
 let popularSongContainer = document.getElementById('popularSongContainer');
 const populatePopularSong = () => {
@@ -45,20 +45,21 @@ populatePopularSong();//questa funzione popola la sezione dei brani popolari
 
 //brani che ti piacciono
 let songYouLike = document.getElementById('songYouLike');
-console.log("🚀 ~ file: index_script.js:48 ~ ImgSongYouLike:", ImgSongYouLike)
+console.log("🚀 ~ file: index_script.js:48 ~ songYouLike:", songYouLike)
+
 let randomNumber = Math.floor(Math.random() * 16) + 5;
 console.log("🚀 ~ file: index_script.js:51 ~ createLikedSection ~ randomNumber:", randomNumber)
 
-/* const createLikedSection = () => {
+const createLikedSection = () => {
     songYouLike.innerHTML= 
     `
         <div class="row">
-            <img src="${}" alt="img">
+            <img src="${'ciao'}" alt="img">
             <div class="col-10">
-                <p>hai messo mi piace a ${} brani</p>
-                <p>Di ${}</p>
+                <p>hai messo mi piace a ${randomNumber} brani</p>
+                <p>Di ${'NOME DA INSERIRE'}</p>
             </div>
         </div>
     `;
 };
- */
+createLikedSection();
