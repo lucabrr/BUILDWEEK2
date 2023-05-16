@@ -1,32 +1,42 @@
-body div.container-fluid {
+body nav {
+  height: 781px;
+}
+body aside {
+  height: 781px;
+}
+body footer {
+  height: 160px;
+}
+body main > div.container-fluid {
+  height: 800px;
   background-color: #262626;
   color: white;
 }
-body div.container-fluid div.row .my-card {
+body main > div.container-fluid div.row .my-card {
   border-radius: 5px;
   background: linear-gradient(16deg, rgb(0, 0, 0) 35%, rgb(34, 34, 35) 67%);
 }
-body div.container-fluid div.row .my-card img {
+body main > div.container-fluid div.row .my-card img {
   height: 90%;
 }
-body div.container-fluid div.row .my-card h1 {
+body main > div.container-fluid div.row .my-card h1 {
   font-size: 3.5rem;
 }
-body div.container-fluid div.row .my-card .light-grey {
+body main > div.container-fluid div.row .my-card .light-grey {
   background-color: #2d2d2d;
   font-size: 1rem;
 }
-body div.container-fluid .myPlaylist {
+body main > div.container-fluid .myPlaylist {
   background-color: #2d2d2d;
   border-radius: 5px;
   box-shadow: 0px 0px 9px -2px #000000;
 }
-body div.container-fluid .card {
+body main > div.container-fluid .card {
   background-color: #2d2d2d;
 }
-body div.container-fluid .card h6 {
+body main > div.container-fluid .card h6 {
   color: white;
 }
-body div.container-fluid .card p {
+body main > div.container-fluid .card p {
   color: #858585;
 }/*# sourceMappingURL=index.css.map */

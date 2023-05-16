@@ -1,6 +1,20 @@
 @import './mixins/mixins';
 body{
-    div.container-fluid{
+    nav{
+        height: 781px;
+    }
+    aside{
+        height: 781px;
+    }
+    footer{
+        height: 160px;
+    }
+
+    main>div.container-fluid{
+
+
+        height: 800px;
+
         @include main-content-page-1;
         div.row{
                 .my-card{
