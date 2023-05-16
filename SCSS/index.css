@@ -1,3 +1,6 @@
+body {
+  height: 100vh;
+}
 body nav {
   height: 781px;
 }
@@ -7,36 +10,44 @@ body aside {
 body footer {
   height: 160px;
 }
-body main > div.container-fluid {
+body main > div.container-fluid.overflow-y-scroll {
   height: 800px;
   background-color: #262626;
   color: white;
 }
-body main > div.container-fluid div.row .my-card {
+body main > div.container-fluid.overflow-y-scroll div.row .my-card {
   border-radius: 5px;
   background: linear-gradient(16deg, rgb(0, 0, 0) 35%, rgb(34, 34, 35) 67%);
 }
-body main > div.container-fluid div.row .my-card img {
+body main > div.container-fluid.overflow-y-scroll div.row .my-card img {
   height: 90%;
 }
-body main > div.container-fluid div.row .my-card h1 {
+body main > div.container-fluid.overflow-y-scroll div.row .my-card h1 {
   font-size: 3.5rem;
 }
-body main > div.container-fluid div.row .my-card .light-grey {
+body main > div.container-fluid.overflow-y-scroll div.row .my-card .light-grey {
   background-color: #2d2d2d;
   font-size: 1rem;
 }
-body main > div.container-fluid .myPlaylist {
+body main > div.container-fluid.overflow-y-scroll .myPlaylist {
   background-color: #2d2d2d;
   border-radius: 5px;
   box-shadow: 0px 0px 9px -2px #000000;
 }
-body main > div.container-fluid .card {
+body main > div.container-fluid.overflow-y-scroll .card {
   background-color: #2d2d2d;
 }
-body main > div.container-fluid .card h6 {
+body main > div.container-fluid.overflow-y-scroll .card h6 {
   color: white;
 }
-body main > div.container-fluid .card p {
+body main > div.container-fluid.overflow-y-scroll .card p {
   color: #858585;
+}
+
+.destruction {
+  display: none;
+}
+
+.bg-custom-artist {
+  background: linear-gradient(0deg, rgb(18, 18, 18) 35%, rgb(32, 32, 32) 67%);
 }/*# sourceMappingURL=index.css.map */

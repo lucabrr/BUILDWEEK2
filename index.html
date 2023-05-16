@@ -462,6 +462,120 @@
                 </div>
               </div>
             </div>
+            <div class="container-fluid bg-img-artist bg-success text-white"><!-- pagina artista -->
+              <div class="row d-flex justify-content-center"><!-- pulsanti e dropdown -->
+                <!-- sopra alla card -->
+                <div class="col-6 my-2 fs-4">
+                  <i class="bi bi-arrow-left-circle me-3"></i>
+                  <i class="bi bi-arrow-right-circle"></i>
+
+                  <div class="row">
+                    <div class="col-6"></div>
+                    <div class="col-6"></div>
+                  </div>
+                </div>
+                <div class="col-6 d-flex flex-row-reverse align-items-center">
+                  <!-- dropdown profilo -->
+                  <div class="dropdown text-light">
+                    <a
+                      class="btn bg-bl dropdown-toggle text-light bg-black p-0 rounded-5 pe-2"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
+                      <img
+                        style="width: 25px"
+                        class="rounded-circle"
+                        src="./assets/imgs_profile/6.png"
+                        alt=""
+                      />
+                      Lidia Nautilus ...
+                    </a>
+
+                    <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="#">Action</a></li>
+                      <li>
+                        <a class="dropdown-item" href="#">Another action</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#"
+                          >Something else here</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </div><!-- pulsanti e dropdown fine-->
+              </div>
+              <div class="content-container row">
+                <p class="col-12">
+                  <span>V</span> Artista verificato
+                </p>
+                <h1 id="artistName" class="col-12">Artista</h1>
+                <p class="col-12">ascoltatori</p>
+              </div>
+            </div>
+            <div class="container-fluid bg-custom-artist text-white">
+              <div class="row px-0">
+                <div class="col-1">play</div>
+                <div class="col-1">follow</div>
+                <div class="col-10">...</div>
+              </div>
+              <div class="row">
+                <h5 class="col-9">Popolari</h5>
+                <div class="col-3">
+                  <h5>Brani che ti piacciono</h5>
+                </div>
+                <div id="popularSongContainer" class="col-9">
+                  <!-- <div class="row">
+                    <div class="col-1">1</div>
+                    <div class="col-1">img</div>
+                    <div class="col-6">nome</div>
+                    <div class="col-2">ascoltatori</div>
+                    <div class="col-2">durata</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-1">1</div>
+                    <div class="col-1">img</div>
+                    <div class="col-6">nome</div>
+                    <div class="col-2">ascoltatori</div>
+                    <div class="col-2">durata</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-1">1</div>
+                    <div class="col-1">img</div>
+                    <div class="col-6">nome</div>
+                    <div class="col-2">ascoltatori</div>
+                    <div class="col-2">durata</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-1">1</div>
+                    <div class="col-1">img</div>
+                    <div class="col-6">nome</div>
+                    <div class="col-2">ascoltatori</div>
+                    <div class="col-2">durata</div>
+                  </div>
+                  <div class="row">
+                    <div class="col-1">1</div>
+                    <div class="col-1">img</div>
+                    <div class="col-6">nome</div>
+                    <div class="col-2">ascoltatori</div>
+                    <div class="col-2">durata</div>
+                  </div> -->
+                </div>
+                <div id="songYouLike" class="col-3">
+                  <!-- <div class="row">
+                    <img src="" alt="img">
+                    <div class="col-10">hai messo mi piace</div>
+                  </div> -->
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <a href="#" class="text-decoration-none">VISUALIZZA ALTRO</a>
+                </div>
+              </div>
+            </div>
           </main>
         </div>
         <div class="col-2 bg-black text-light">
@@ -665,5 +779,6 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    <script src="./Javascript/index_script.js"></script>
   </body>
 </html>
