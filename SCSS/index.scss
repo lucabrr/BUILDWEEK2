@@ -1,4 +1,9 @@
 @import './mixins/mixins';
+i:hover{color: #a29e9e;}
+a{
+    color: white;
+    text-decoration: none;
+}
 body{
     #searchBar{
         width: 350px;
