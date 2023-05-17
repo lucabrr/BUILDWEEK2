@@ -17,18 +17,21 @@ body{
         
         #searchForJs{cursor:pointer;}
     }
-    aside{
-        // height: 781px;
-    }
+    // aside{
+    //     // height: 781px;
+    // }
     footer{
-        height: 160px;
+        #photoFooter{
+            width: 80px;
+            height: 80px;
+        }
         
     }
 
     main>div.container-fluid.overflow-y-scroll{
 
 
-        height: 800px;
+         height: 850px;
 
         @include main-content-page-1;
         div.row{
