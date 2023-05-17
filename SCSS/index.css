@@ -59,6 +59,12 @@ body main > div.container-fluid.overflow-y-scroll .card p {
   color: #858585;
 }
 
+.box {
+  margin-bottom: 20px;
+  width: 200px;
+  height: 200px;
+}
+
 .destruction {
   display: none;
 }
