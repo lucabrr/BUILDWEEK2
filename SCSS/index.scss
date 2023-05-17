@@ -1,4 +1,9 @@
 @import './mixins/mixins';
+i:hover{color: #a29e9e;}
+a{
+    color: white;
+    text-decoration: none;
+}
 body{
     #searchBar{
         width: 350px;
@@ -65,5 +70,11 @@ body{
 }
 .bg-custom-artist{
     background: linear-gradient(0deg, rgba(18,18,18,1) 35%, rgba(32,32,32,1) 67%);
-    
+}
+.bg-img-artist{
+    background-position: center center;
+    background-size: cover;
+}
+.songYouLikeImg{
+    width: 100px;
 }
