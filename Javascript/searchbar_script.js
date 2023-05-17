@@ -9,9 +9,11 @@ searchButton.addEventListener("click", () => {
 });
 
 //per rimuover d-none alla searchbar
-searchButton.addEventListener("click", () => {
-  searchBar.classList.toggle("d-none");
-});
+ searchButton.addEventListener("click", () => {
+  let searchPageContainer= document.querySelector(".searchPageContainer");
+  searchPageContainer.classList.remove("d-none")
+ });
+
 
 //logica get artist
 let searchBarText = document.getElementById("searchBarText");
@@ -22,6 +24,8 @@ console.log(
 
 searchBarText.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
+     searchPageContainer= document.querySelector(".searchPageContainer")
+    searchPageContainer.classList.add("d-none")
     console.log(searchBarText.value);
     fetch(
       `https://striveschool-api.herokuapp.com/api/deezer/artist/${searchBarText.value}`

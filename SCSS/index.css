@@ -58,6 +58,9 @@ body main > div.container-fluid.overflow-y-scroll .card h6 {
 body main > div.container-fluid.overflow-y-scroll .card p {
   color: #858585;
 }
+body main > div.container-fluid.overflow-y-scroll .card {
+  cursor: pointer;
+}
 
 .box {
   margin-bottom: 20px;
