@@ -1,4 +1,4 @@
-let searchButton = document.getElementById("search");
+ let searchButton = document.getElementById("search");
 console.log(searchButton);
 let mainColumn = document.querySelectorAll("main div.container-fluid");
 
