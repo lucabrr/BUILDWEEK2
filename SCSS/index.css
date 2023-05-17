@@ -13,14 +13,8 @@ body #searchBar {
 body #searchBar #searchBarText[placeholder] {
   color: darkgray;
 }
-body nav {
-  height: 781px;
-}
 body nav #searchForJs {
   cursor: pointer;
-}
-body aside {
-  height: 781px;
 }
 body footer {
   height: 160px;
@@ -67,7 +61,6 @@ body main > div.container-fluid.overflow-y-scroll .card:hover {
 
 .box {
   margin-bottom: 20px;
-  width: 200px;
   height: 200px;
 }
 
