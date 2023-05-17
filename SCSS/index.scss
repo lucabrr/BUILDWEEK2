@@ -62,6 +62,9 @@ body{
             }
         }
         .card{cursor:pointer;}
+        .card:hover{
+            background-color: #5c5b5b;
+        }
 
 
     }
@@ -71,6 +74,13 @@ body{
     margin-bottom: 20px;
     width: 200px;
     height: 200px;
+}
+.box{cursor:pointer;}
+.box{
+    transition: all 0.2s;
+}
+.box:hover{
+    transform: scale(0.9);
 }
 
 .destruction{
