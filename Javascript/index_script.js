@@ -45,11 +45,9 @@ const removeSameObj = (array) => {
 class AlbumFromArtistSongs {
 
     constructor(id, title, image) {
-      this.id = id;
-  
-      this.title = title;
-  
-      this.image = image;
+        this.id = id;
+        this.title = title;
+        this.image = image;
     }
 };
 
@@ -87,10 +85,24 @@ const createDiscographySection = (album) => {
             `;
     })
 };
+let albumPage = document.getElementById('albumPage');
+//passaaggio a pagina album
+const transformPage = (a) => {
+    a.forEach((card) => {
+        card.addEventListener('click', () => {
+            heroArtist.classList.add('d-none');
+            contentArtist.classList.add('d-none');
+            albumPage.classList.remove('d-none');
+            let myId = card.getAttribute('data-album-id');
+            console.log("🚀 ~ file: index_script.js:98 ~ allAlbumCards.forEach ~ myId:", myId);
+            getAlbumInfo(myId);
+            
+        })
+    })
+};
 
 //popolare pagina artista
 let popularSongContainer = document.getElementById('popularSongContainer');
-let allSongImg = [];
 
 const populatePopularSong = (p) => {
     const songArray = Array.from(p);
@@ -115,18 +127,23 @@ const populatePopularSong = (p) => {
         `;
         popularSongContainer.appendChild(popularSong);
         //avvio audio al click su img e titolo canzone
-        allSongImg = document.querySelectorAll('.songContainer a');
-        allSongImg.forEach((a) => {
-        a.addEventListener('click', () => {
-            let audio = new Audio(canzone.preview);
+        const playAudio = (song) => {
+            let audio = new Audio(song.preview);
             audio.play();
+        }
+        let allSongImg = popularSong.querySelector('.songContainer a, .songContainer div>a');
+        allSongImg.addEventListener('click', () => {
+            playAudio(canzone)
             });
-        });
+
         createAlbumCard(canzone);
         removeSameObj(allAlbumIds);
     }); // fine primo forEach
         //creazione cards album
         createDiscographySection(allAlbumIds);
+        let allAlbumCards = document.querySelectorAll('[data-album-id]');
+        console.log("🚀 ~ file: index_script.js:131 ~ populatePopularSong ~ allAlbumCards:", allAlbumCards)
+        transformPage(allAlbumCards);
 };
 
 
@@ -149,3 +166,5 @@ const createLikedSection = (p) => {
         </div>
     `;
 };
+
+
