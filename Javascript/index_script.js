@@ -14,17 +14,85 @@ const backgroundimgArtist = (p) => {
     backgroundContainer.style.backgroundImage = `url(${p.picture_xl})`;
 };
 
-//per cambiare nome artista
+//per cambiare nome artista e ascoltatori
 let artistName = document.getElementById('artistName');
-console.log("🚀 ~ file: index_script.js:20 ~ artistName:", artistName)
+let artistFan = document.getElementById('artistFan');
 
-let changeArtistName = () => {
-    artistName.textContent = "quello che mi passa luca"//da modificare appena abbiamo i dati
+
+let changeArtistName = (p) => {
+    artistName.textContent = `${p.name}`;
+    artistFan.textContent = `${Number(p.nb_fan).toLocaleString("it-IT")} ascoltatori mensili`;
 };
 
+//controllo album uguali
+let allAlbumIds = [];
+
+const confrontObject = (a, b) => {
+    return a.id === b.id;
+};
+
+const removeSameObj = (array) => {
+    return array.filter((obj, index, arr) => {
+        for (let i = 0; i < index; i++) {
+            if (confrontObject(obj, arr[i])) {
+                allAlbumIds.splice(index, 1);
+            }
+        }
+    });
+};
+
+//creazione oggetto per card album
+class AlbumFromArtistSongs {
+
+    constructor(id, title, image) {
+      this.id = id;
+  
+      this.title = title;
+  
+      this.image = image;
+    }
+};
+
+const createAlbumCard = (p) => {
+    let currentSong = new AlbumFromArtistSongs(p.album.id, p.album.title, p.album.cover_medium);
+    allAlbumIds.push(currentSong);
+};
+
+const createDiscographySection = (album) => {
+    let discographySection = document.createElement("div");
+    discographySection.classList.add('row');
+    contentArtist.appendChild(discographySection);
+    let discographyTitle = document.createElement('h5');
+    discographyTitle.textContent = 'Discografia';
+    discographyTitle.classList.add('col-12');
+    discographySection.appendChild(discographyTitle);
+    album.forEach((obj) => {
+        let singleCard = document.createElement("div");
+        singleCard.classList.add('col-2');
+        discographySection.appendChild(singleCard);
+        singleCard.innerHTML = 
+            `
+                    <a data-album-id="${obj.id}" href="#">
+                        <div class="card">
+                            <img
+                                src="${obj.image}"
+                                class="card-img-top p-2 rounded-4"
+                                alt="..."
+                            />
+                            <div class="card-body">
+                                <h6>${obj.title}</h6>
+                            </div>
+                        </div>
+                    </a>
+            `;
+    })
+};
+
+//popolare pagina artista
 let popularSongContainer = document.getElementById('popularSongContainer');
+let allSongImg = [];
+
 const populatePopularSong = (p) => {
-    /* for (let i = 0; i <= 4; i++) { */
     const songArray = Array.from(p);
     songArray.forEach((canzone, index) => {
         let popularSong = document.createElement('div');
@@ -37,18 +105,30 @@ const populatePopularSong = (p) => {
         let durationInMinutes = secondsToMinutes(canzone.duration);
         popularSong.innerHTML = 
         `
-        <div class="row">
-            <div class="col-1">${counter}</div>
-            <img class="col-1" src="${canzone.album.cover_small}"/>
-            <div class="col-6">${canzone.title}</div>
-            <div class="col-2">${canzone.rank}</div>
-            <div class="col-2">${(durationInMinutes)}</div>
+        <div class="row songContainer">
+            <div class="col-1 d-flex align-items-center">${counter}</div>
+            <a data-id-song="${canzone.id}" href="#" class="col-2 d-flex align-items-center"><img src="${canzone.album.cover_small}"/></a>
+            <div class="col-5 d-flex align-items-center"><a data-id-song="${canzone.id}" href="#">${canzone.title}</a></div>
+            <div class="col-2 d-flex align-items-center">${Number(canzone.rank).toLocaleString("it-IT")}</div>
+            <div class="col-2 d-flex align-items-center">${(durationInMinutes)}</div>
         </div>
         `;
         popularSongContainer.appendChild(popularSong);
-    });
+        //avvio audio al click su img e titolo canzone
+        allSongImg = document.querySelectorAll('.songContainer a');
+        allSongImg.forEach((a) => {
+        a.addEventListener('click', () => {
+            let audio = new Audio(canzone.preview);
+            audio.play();
+            });
+        });
+        createAlbumCard(canzone);
+        removeSameObj(allAlbumIds);
+    }); // fine primo forEach
+        //creazione cards album
+        createDiscographySection(allAlbumIds);
 };
-/* populatePopularSong(); *///questa funzione popola la sezione dei brani popolari
+
 
 //brani che ti piacciono
 let songYouLike = document.getElementById('songYouLike');
@@ -69,4 +149,3 @@ const createLikedSection = (p) => {
         </div>
     `;
 };
-/* createLikedSection(); */
