@@ -9,6 +9,8 @@ searchButton.addEventListener("click",()=>{
 
 let searchBarText = document.getElementById("searchBarText")
 console.log("🚀 ~ file: searchbar_script.js:11 ~ searchBarText:", searchBarText)
+let heroArtist = document.getElementById("heroArtist");
+let contentArtist = document.getElementById("contentArtist");
 
 searchBarText.addEventListener("keydown",(e)=>{
 
@@ -26,6 +28,9 @@ if (e.key === "Enter"){
     .then((obj)=>{
         console.log(obj);
         //ci ritorna l'artista
+        heroArtist.classList.remove("d-none");
+        contentArtist.classList.remove("d-none");
+        changeArtistName(obj);
         backgroundimgArtist(obj);
         createLikedSection(obj);
         fetch(obj.tracklist)
