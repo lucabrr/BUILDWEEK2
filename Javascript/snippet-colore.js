@@ -9,6 +9,23 @@ const draw = function (img) {
   return c
 }
 
+/* const draw = function (img) {
+  return new Promise((resolve, reject) => {
+    img.crossOrigin = "Anonymous"; // Imposta l'attributo crossOrigin
+    img.onload = () => {
+      let canvas = document.createElement('canvas');
+      let c = canvas.getContext('2d');
+      c.width = canvas.width = img.clientWidth;
+      c.height = canvas.height = img.clientHeight;
+      c.clearRect(0, 0, c.width, c.height);
+      c.drawImage(img, 0, 0, img.clientWidth, img.clientHeight);
+      resolve(c); // Risolve la promessa con il contesto 2D del canvas
+    };
+    img.onerror = reject; // Rigetta la promessa in caso di errore di caricamento dell'immagine
+  });
+}; */
+
+
 // scompone pixel per pixel e ritorna un oggetto con una mappa della loro frequenza nell'immagine
 const getColors = function (c) {
   let col,
@@ -74,4 +91,41 @@ const pad = function (hex) {
 
   // console.log del risultato
   console.log(mostRecurrentHex)
-} */
+}
+ */
+const getImageMainColor = () => {
+    // prendo il riferimento all'immagine del dom
+    let imgReference = document.querySelector('#albumDisplayImage');
+
+    // creo il context 2d dell'immagine selezionata
+    let context = draw(imgReference)
+  
+    // creo la mappa dei colori più ricorrenti nell'immagine
+    let allColors = getColors(context)
+  
+    // trovo colore più ricorrente in esadecimale
+    let mostRecurrent = findMostRecurrentColor(allColors)
+  
+    // se necessario, aggiunge degli '0' per rendere il risultato un valido colore esadecimale
+    let mostRecurrentHex = pad(mostRecurrent)
+  
+    // console.log del risultato
+    console.log(mostRecurrentHex)
+    return mostRecurrentHex;
+};
+
+/* const getImageMainColor = () => {
+  let imgReference = document.querySelector('#albumDisplayImage');
+  
+  return draw(imgReference)
+    .then((context) => {
+      let allColors = getColors(context);
+      let mostRecurrent = findMostRecurrentColor(allColors);
+      let mostRecurrentHex = pad(mostRecurrent);
+      console.log(mostRecurrentHex);
+      return mostRecurrentHex;
+    })
+    .catch((error) => {
+      console.error("Errore nel caricamento dell'immagine:", error);
+    });
+}; */

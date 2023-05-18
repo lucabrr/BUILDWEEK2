@@ -1,21 +1,14 @@
-
-//immagine album
-
-/* const getColorFunction =  () => {
-    let imgReference = albumDisplayImage.src;
-    let context = draw(imgReference)
-    let allColors = getColors(context)
-    let mostRecurrent = findMostRecurrentColor(allColors)
-    let mostRecurrentHex = pad(mostRecurrent)
-    console.log(mostRecurrentHex)
-} */
-
 const getImage = (p) => {
     albumDisplayImage.src = p.cover_medium;
-    /* albumPage.style.backgroundImage = `url(${p.cover_xl})`; */
-    /* getColorFunction(); */
+    /* albumDisplayImage.style.width = '250px';
+    albumDisplayImage.style.height = '250px'; */
 };
 
+const setBackgroundColor = (color) => {
+    let gradient = `linear-gradient(0deg, #${color} 50%, rgba(43,43,43,1) 91%)`;
+    document.getElementById('albumPage').style.background = gradient;
+    console.log("🚀 ~ file: albumPage.js:10 ~ setBackgroundColor ~ gradient:", gradient)
+};
 
 //titolo album
 const getTitle = (p) => {
@@ -63,6 +56,15 @@ const populateAlbumSongs = (p) => {
         </div>
         `;
         trackContainer.appendChild(trackDiv);
+        //avvio audio al click su img e titolo canzone
+        const playAudio = (song) => {
+            let audio = new Audio(track.preview);
+            audio.play();
+        }
+        let allSongImg = trackDiv.querySelector('.songContainer a');
+        allSongImg.addEventListener('click', () => {
+            playAudio(track)
+            });
     }); // fine primo forEach
 
 };
@@ -91,6 +93,11 @@ const getAlbumInfo = (id) => {
             getTitle(album);
             getInterpolation(album);
             populateAlbumSongs(album.tracks.data);
+            /* getImage.onload = getHexColor();
+            let newBgColor = mostRecurrentHex;
+            console.log("🚀 ~ file: albumPage.js:4 ~ getImage ~ newBgColor:", newBgColor)
+    
+            setBackgroundColor(newBgColor); */
         })
         .catch((err) => console.log(err));
 };
