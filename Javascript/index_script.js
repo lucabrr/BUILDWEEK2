@@ -147,6 +147,14 @@ const populatePopularSong = (p) => {
         let allSongImg = popularSong.querySelector('.songContainer a, .songContainer div>a');
         allSongImg.addEventListener('click', () => {
             playAudio(canzone)
+            let photoFooter = document.getElementById("photoFooter")
+            let songTitleFooter = document.getElementById("songTitleFooter")
+            let artistNameFooter = document.getElementById("artistNameFooter")
+
+            photoFooter.src= canzone.album.cover_small
+            songTitleFooter.innerText = canzone.title
+            artistNameFooter.innerText= canzone.artist.name
+            
             });
 
         createAlbumCard(canzone);
