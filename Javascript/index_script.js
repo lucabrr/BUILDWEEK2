@@ -1,3 +1,4 @@
+let artistSongsContainer = document.getElementById("artistSongsContainer")
 //funzione distruttore pagina 1
 const destructionMain = () => {
     let mainColumn = document.querySelector('main>div.container-fluid');
@@ -59,26 +60,37 @@ const createAlbumCard = (p) => {
 const createDiscographySection = (album) => {
     let discographySection = document.createElement("div");
     discographySection.classList.add('row');
+    discographySection.classList.add('justify-content-around');
+    discographySection.classList.add('row-cols-2');
+    discographySection.classList.add('row-cols-sm-3');
+
+    discographySection.classList.add('row-cols-md-3');
+    discographySection.classList.add('row-cols-lg-5');
+
+
+    
+
+
     contentArtist.appendChild(discographySection);
-    let discographyTitle = document.createElement('h5');
-    discographyTitle.textContent = 'Discografia';
-    discographyTitle.classList.add('col-12');
-    discographySection.appendChild(discographyTitle);
+    // let discographyTitle = document.createElement('h5');
+    // discographyTitle.textContent = 'Discografia';
+    // discographyTitle.classList.add('col-12');
+    // discographySection.appendChild(discographyTitle);
     album.forEach((obj) => {
         let singleCard = document.createElement("div");
-        singleCard.classList.add('col-2');
+        singleCard.classList.add('col');
         discographySection.appendChild(singleCard);
         singleCard.innerHTML = 
             `
                     <a data-album-id="${obj.id}" href="#">
-                        <div class="card">
+                        <div class="card mb-2 bg-dark">
                             <img
                                 src="${obj.image}"
                                 class="card-img-top p-2 rounded-4"
                                 alt="..."
                             />
                             <div class="card-body">
-                                <h6>${obj.title}</h6>
+                                <h6 class="text-light">${obj.title}</h6>
                             </div>
                         </div>
                     </a>
@@ -90,8 +102,9 @@ let albumPage = document.getElementById('albumPage');
 const transformPage = (a) => {
     a.forEach((card) => {
         card.addEventListener('click', () => {
-            heroArtist.classList.add('d-none');
-            contentArtist.classList.add('d-none');
+            // heroArtist.classList.add('d-none');
+            // contentArtist.classList.add('d-none');
+            artistSongsContainer.classList.add("d-none")
             albumPage.classList.remove('d-none');
             let myId = card.getAttribute('data-album-id');
             console.log("🚀 ~ file: index_script.js:98 ~ allAlbumCards.forEach ~ myId:", myId);
@@ -117,12 +130,12 @@ const populatePopularSong = (p) => {
         let durationInMinutes = secondsToMinutes(canzone.duration);
         popularSong.innerHTML = 
         `
-        <div class="row songContainer">
+        <div class="row songContainer my-2">
             <div class="col-1 d-flex align-items-center">${counter}</div>
             <a data-id-song="${canzone.id}" href="#" class="col-2 d-flex align-items-center"><img src="${canzone.album.cover_small}"/></a>
             <div class="col-5 d-flex align-items-center"><a data-id-song="${canzone.id}" href="#">${canzone.title}</a></div>
-            <div class="col-2 d-flex align-items-center">${Number(canzone.rank).toLocaleString("it-IT")}</div>
-            <div class="col-2 d-flex align-items-center">${(durationInMinutes)}</div>
+            <div class="col-2 d-flex align-items-center d-none d-lg-flex">${Number(canzone.rank).toLocaleString("it-IT")}</div>
+            <div class="col-2 d-flex align-items-center d-none d-lg-flex">${(durationInMinutes)}</div>
         </div>
         `;
         popularSongContainer.appendChild(popularSong);

@@ -92,4 +92,8 @@ body main > div.container-fluid.overflow-y-scroll .card:hover {
 
 .songYouLikeImg {
   width: 100px;
+}
+
+#artistName {
+  font-size: 6em;
 }/*# sourceMappingURL=index.css.map */

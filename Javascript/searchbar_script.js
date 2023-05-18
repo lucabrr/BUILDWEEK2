@@ -45,8 +45,10 @@ searchBarText.addEventListener("keydown", (e) => {
       .then((obj) => {
         console.log(obj);
         //ci ritorna l'artista
-        heroArtist.classList.remove("d-none");
-        contentArtist.classList.remove("d-none");
+        // heroArtist.classList.remove("d-none");
+        // contentArtist.classList.remove("d-none");
+        artistSongsContainer.classList.remove("d-none")
+        
         changeArtistName(obj);
         backgroundimgArtist(obj);
         createLikedSection(obj);
