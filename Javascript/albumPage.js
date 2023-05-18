@@ -1,7 +1,15 @@
-//immagine album
 const getImage = (p) => {
     albumDisplayImage.src = p.cover_medium;
+    /* albumDisplayImage.style.width = '250px';
+    albumDisplayImage.style.height = '250px'; */
 };
+
+const setBackgroundColor = (color) => {
+    let gradient = `linear-gradient(0deg, #${color} 50%, rgba(43,43,43,1) 91%)`;
+    document.getElementById('albumPage').style.background = gradient;
+    console.log("🚀 ~ file: albumPage.js:10 ~ setBackgroundColor ~ gradient:", gradient)
+};
+
 //titolo album
 const getTitle = (p) => {
     albumDisplayTitle.textContent = p.title;
@@ -13,8 +21,8 @@ const getInterpolation = (p) => {
     let remainingSeconds = seconds % 60;
     interpolationAlbum.innerHTML = 
     `
-        <img src="${p.artist.picture_small}" alt"artist picture"/>
-        <p>${p.artist.name} • ${p.release_date.slice(0, 5)} • ${p.nb_tracks} brani, ${minutes} min ${remainingSeconds} sec.</p>
+        <img src="${p.artist.picture_small}" alt"artist picture" class="rounded-5 me-2"/>
+        <p class="mb-0">${p.artist.name} • ${p.release_date.slice(0, 4)} • ${p.nb_tracks} brani, ${minutes} min ${remainingSeconds} sec.</p>
     `
 };
 //canzoni album
@@ -33,21 +41,30 @@ const populateAlbumSongs = (p) => {
         let durationInMinutes = secondsToMinutes(track.duration);
         trackDiv.innerHTML = 
         `
-        <div class="row songContainer">
+        <div class="row songContainer mb-2">
             <div class="col-1 d-flex justify-content-center align-items-center">${counter}</div>
-            <div class="col-6 d-flex flex-column align-items-center">
-                <a data-id-track="${track.id}" href="#" class="text-black">${track.title}</a>
-                <a data-id-track="${track.id}" href="#" class="text-black">${track.artist.name}</a>
+            <div class="col-11 col-md-5 d-flex flex-column align-items-start">
+                <a data-id-track="${track.id}" href="#" class="">${track.title}</a>
+                <a data-id-track="${track.id}" href="#" class="text-secondary">${track.artist.name}</a>
             </div>
-            <div class="col-2 d-flex align-items-center">
+            <div class="col-3 d-none d-md-flex align-items-center justify-content-end">
                 ${Number(track.rank).toLocaleString("it-IT")}
             </div>
-            <div class="col-2 d-flex justify-content-center align-items-center">
+            <div class="col-3 d-none d-md-flex justify-content-center align-items-center">
                 ${(durationInMinutes)}
             </div>
         </div>
         `;
         trackContainer.appendChild(trackDiv);
+        //avvio audio al click su img e titolo canzone
+        const playAudio = (song) => {
+            let audio = new Audio(track.preview);
+            audio.play();
+        }
+        let allSongImg = trackDiv.querySelector('.songContainer a');
+        allSongImg.addEventListener('click', () => {
+            playAudio(track)
+            });
     }); // fine primo forEach
 
 };
@@ -76,6 +93,11 @@ const getAlbumInfo = (id) => {
             getTitle(album);
             getInterpolation(album);
             populateAlbumSongs(album.tracks.data);
+            /* getImage.onload = getHexColor();
+            let newBgColor = mostRecurrentHex;
+            console.log("🚀 ~ file: albumPage.js:4 ~ getImage ~ newBgColor:", newBgColor)
+    
+            setBackgroundColor(newBgColor); */
         })
         .catch((err) => console.log(err));
 };

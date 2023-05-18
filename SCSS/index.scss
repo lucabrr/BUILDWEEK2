@@ -104,3 +104,41 @@ body{
         font-size: 6em;
     
 }
+
+#albumPage{
+    /* background: linear-gradient(0deg, rgb(0, 0, 0) 50%, rgba(43,43,43,1) 91%); */
+    background-attachment: local;
+}
+#albumDisplayTitle{
+    font-weight: bold;
+    font-size: 3.5rem;
+    @media screen and (max-width: 767px){
+        margin-top: 20px;
+        font-size: 2rem;
+    }
+}
+#interpolationAlbum{
+    img{
+        width: 30px;
+    }
+}
+.bg-black-trasparent{
+    background-color: #00000021;
+}
+#playButton{
+    font-size: 60px;
+}
+#iContainer i, #singleI{
+    @media screen and (max-width: 767px){
+        font-size: 2rem !important;
+    }
+}
+/* #iContainer:last-child{
+    transform: rotate(0deg);
+}
+
+#iContainer:last-child{
+    @media screen and (max-width: 767px){
+        transform: rotate(90deg);
+    }
+} */
