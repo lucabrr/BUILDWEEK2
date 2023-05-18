@@ -103,6 +103,12 @@ body main > div.container-fluid.overflow-y-scroll .card:hover {
   font-weight: bold;
   font-size: 3.5rem;
 }
+@media screen and (max-width: 767px) {
+  #albumDisplayTitle {
+    margin-top: 20px;
+    font-size: 2rem;
+  }
+}
 
 #interpolationAlbum img {
   width: 30px;
@@ -110,4 +116,24 @@ body main > div.container-fluid.overflow-y-scroll .card:hover {
 
 .bg-black-trasparent {
   background-color: rgba(0, 0, 0, 0.1294117647);
-}/*# sourceMappingURL=index.css.map */
+}
+
+#playButton {
+  font-size: 60px;
+}
+
+@media screen and (max-width: 767px) {
+  #iContainer i, #singleI {
+    font-size: 2rem !important;
+  }
+}
+
+/* #iContainer:last-child{
+    transform: rotate(0deg);
+}
+
+#iContainer:last-child{
+    @media screen and (max-width: 767px){
+        transform: rotate(90deg);
+    }
+} *//*# sourceMappingURL=index.css.map */

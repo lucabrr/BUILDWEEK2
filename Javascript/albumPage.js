@@ -1,8 +1,22 @@
+
 //immagine album
+
+/* const getColorFunction =  () => {
+    let imgReference = albumDisplayImage.src;
+    let context = draw(imgReference)
+    let allColors = getColors(context)
+    let mostRecurrent = findMostRecurrentColor(allColors)
+    let mostRecurrentHex = pad(mostRecurrent)
+    console.log(mostRecurrentHex)
+} */
+
 const getImage = (p) => {
     albumDisplayImage.src = p.cover_medium;
     /* albumPage.style.backgroundImage = `url(${p.cover_xl})`; */
+    /* getColorFunction(); */
 };
+
+
 //titolo album
 const getTitle = (p) => {
     albumDisplayTitle.textContent = p.title;
@@ -36,14 +50,14 @@ const populateAlbumSongs = (p) => {
         `
         <div class="row songContainer mb-2">
             <div class="col-1 d-flex justify-content-center align-items-center">${counter}</div>
-            <div class="col-5 d-flex flex-column align-items-start">
+            <div class="col-11 col-md-5 d-flex flex-column align-items-start">
                 <a data-id-track="${track.id}" href="#" class="">${track.title}</a>
                 <a data-id-track="${track.id}" href="#" class="text-secondary">${track.artist.name}</a>
             </div>
-            <div class="col-3 d-flex align-items-center d-flex justify-content-end">
+            <div class="col-3 d-none d-md-flex align-items-center justify-content-end">
                 ${Number(track.rank).toLocaleString("it-IT")}
             </div>
-            <div class="col-3 d-flex justify-content-center align-items-center">
+            <div class="col-3 d-none d-md-flex justify-content-center align-items-center">
                 ${(durationInMinutes)}
             </div>
         </div>
