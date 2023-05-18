@@ -1,6 +1,7 @@
 //immagine album
 const getImage = (p) => {
     albumDisplayImage.src = p.cover_medium;
+    /* albumPage.style.backgroundImage = `url(${p.cover_xl})`; */
 };
 //titolo album
 const getTitle = (p) => {
@@ -13,8 +14,8 @@ const getInterpolation = (p) => {
     let remainingSeconds = seconds % 60;
     interpolationAlbum.innerHTML = 
     `
-        <img src="${p.artist.picture_small}" alt"artist picture"/>
-        <p>${p.artist.name} • ${p.release_date.slice(0, 5)} • ${p.nb_tracks} brani, ${minutes} min ${remainingSeconds} sec.</p>
+        <img src="${p.artist.picture_small}" alt"artist picture" class="rounded-5 me-2"/>
+        <p class="mb-0">${p.artist.name} • ${p.release_date.slice(0, 4)} • ${p.nb_tracks} brani, ${minutes} min ${remainingSeconds} sec.</p>
     `
 };
 //canzoni album
@@ -33,16 +34,16 @@ const populateAlbumSongs = (p) => {
         let durationInMinutes = secondsToMinutes(track.duration);
         trackDiv.innerHTML = 
         `
-        <div class="row songContainer">
+        <div class="row songContainer mb-2">
             <div class="col-1 d-flex justify-content-center align-items-center">${counter}</div>
-            <div class="col-6 d-flex flex-column align-items-center">
-                <a data-id-track="${track.id}" href="#" class="text-black">${track.title}</a>
-                <a data-id-track="${track.id}" href="#" class="text-black">${track.artist.name}</a>
+            <div class="col-5 d-flex flex-column align-items-start">
+                <a data-id-track="${track.id}" href="#" class="">${track.title}</a>
+                <a data-id-track="${track.id}" href="#" class="text-secondary">${track.artist.name}</a>
             </div>
-            <div class="col-2 d-flex align-items-center">
+            <div class="col-3 d-flex align-items-center d-flex justify-content-end">
                 ${Number(track.rank).toLocaleString("it-IT")}
             </div>
-            <div class="col-2 d-flex justify-content-center align-items-center">
+            <div class="col-3 d-flex justify-content-center align-items-center">
                 ${(durationInMinutes)}
             </div>
         </div>

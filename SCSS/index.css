@@ -92,4 +92,22 @@ body main > div.container-fluid.overflow-y-scroll .card:hover {
 
 .songYouLikeImg {
   width: 100px;
+}
+
+#albumPage {
+  background: linear-gradient(0deg, rgb(0, 0, 0) 50%, rgb(43, 43, 43) 91%);
+  background-attachment: local;
+}
+
+#albumDisplayTitle {
+  font-weight: bold;
+  font-size: 3.5rem;
+}
+
+#interpolationAlbum img {
+  width: 30px;
+}
+
+.bg-black-trasparent {
+  background-color: rgba(0, 0, 0, 0.1294117647);
 }/*# sourceMappingURL=index.css.map */
