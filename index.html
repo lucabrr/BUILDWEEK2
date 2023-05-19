@@ -1071,24 +1071,25 @@
     </div>
     <footer
       style="background-color: #262626"
-      class="position-fixed bottom-0 w-100 shadow-lg"
+      class="position-fixed w-100 shadow-lg"
     >
+      <div  id="greenBarMobile" class="d-block d-md-none"></div>
       <div class="row w-100">
-        <div class="col-4 d-none d-md-flex">
+        <div class="col-4 d-md-flex">
           <div class="row w-100 text-light align-items-center ms-2 my-2">
-            <div class="col-3 p-0">
+            <div class="col-3 d-none d-md-block p-0">
               <img id="photoFooter" src="./assets/imgs/search/image-1.jpeg" />
             </div>
-            <div class="col-7 d-flex flex-column ms-3 px-0 pt-3">
+            <div id="containerTextFooterScroll" class="col-12 col-md-7 d-flex flex-column ms-3 px-0 pt-3">
               <h6 id="songTitleFooter" class="m-0">Titolo</h6>
               <p id="artistNameFooter" class="text-secondary">Artista</p>
             </div>
-            <div class="col-1">
+            <div class="col-1 d-none d-md-block">
               <i class="bi bi-suit-heart text-light"></i>
             </div>
           </div>
         </div>
-        <div class="col col-md-4">
+        <div class="col col-md-4 d-flex flex-column align-items-center">
           <div class="row text-light align-items-center">
             <div class="col-3"></div>
             <div
@@ -1112,12 +1113,12 @@
             </div>
             <div class="col-3"></div>
           </div>
-          <div class="row align-items-center text-white">
-            <div class="col-9 baseBar position-relative">
+          <div class="row w-100 align-items-center justify-content-center text-white">
+            <div class="d-none d-md-block col-9 baseBar position-relative ms-5 ms-md-0">
               <div id="greenBar" class="position-absolute"></div>
               
             </div>
-            <div id="durationSong" class="col-3"></div>
+            <div id="durationSong" class="col-1 d-none d-md-block"></div>
           </div>
         </div>
         <div
@@ -1127,7 +1128,15 @@
           <div><i class="fs-4 mx-2 m-1 bi bi-menu-button-wide"></i></div>
           <div><i class="fs-4 mx-2 m-1 bi bi-speaker"></i></div>
           <div><i class="fs-4 mx-2 m-1 bi bi-volume-up"></i></div>
-          <div>
+          <!-- <div class="btn-group dropup">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fs-4 mx-2 m-1 bi bi-volume-up"></i>
+            </button>
+            <ul class="dropdown-menu bg-black">
+                <input type="range" class="form-range w-75 m-auto" id="customRange1" />
+            </ul>
+          </div>
+          <div> -->
             <input type="range" class="mx-2 form-range" id="customRange1" />
           </div>
           <div class="ms-4"><i class="fs-4 bi bi-arrows-angle-expand"></i></div>

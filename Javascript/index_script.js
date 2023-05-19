@@ -122,6 +122,7 @@ const transformPage = (a) => {
 //popolare pagina artista
 let popularSongContainer = document.getElementById('popularSongContainer');
 let greenBar = document.getElementById('greenBar');
+let greenBarMobile = document.getElementById('greenBarMobile');
 
 const populatePopularSong = (p) => {
     const songArray = Array.from(p);
@@ -155,9 +156,11 @@ const populatePopularSong = (p) => {
             greenBar.classList.remove('progressBar');
             playAudio(canzone)
             greenBar.classList.add('progressBar');
+            greenBarMobile.classList.add('progressBarMobile');
              photoFooter = document.getElementById("photoFooter")
              songTitleFooter = document.getElementById("songTitleFooter")
              artistNameFooter = document.getElementById("artistNameFooter")
+            let durationFooter = document.getElementById('durationSong')
 
             photoFooter.src= canzone.album.cover_small
             songTitleFooter.innerText = canzone.title
@@ -166,6 +169,7 @@ const populatePopularSong = (p) => {
             localStorage.setItem("lastImg",photoFooter.src)
             localStorage.setItem("lastSong",songTitleFooter.innerText)
             localStorage.setItem("lastArtist",artistNameFooter.innerText)
+            durationSong.innerText = durationInMinutes
 
 
             
