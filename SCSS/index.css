@@ -16,6 +16,9 @@ body #searchBar #searchBarText[placeholder] {
 body nav #searchForJs {
   cursor: pointer;
 }
+body footer {
+  height: 100px;
+}
 body footer #photoFooter {
   width: 80px;
   height: 80px;
