@@ -140,7 +140,7 @@ const pad = function (hex) {
   return ('000000' + hex).slice(-6)
 }
 
-const generateImage = function () {
+/* const generateImage = function () {
   let imageSrc =
     'https://e-cdns-images.dzcdn.net/images/artist/7f6e8be161417ad8ce8f09b45721544f/500x500-000000-80-0-0.jpg'
   let reference = document.getElementById('container')
@@ -152,7 +152,7 @@ const generateImage = function () {
       crossorigin="anonymous"
       onload="start()"
     />`
-}
+} */
 
 const start = function () {
   // prendo il riferimento all'immagine del dom
@@ -172,8 +172,11 @@ const start = function () {
 
   // console.log del risultato
   console.log(mostRecurrentHex)
+  
+  let gradient = `linear-gradient(0deg, rgba(43,43,43,1) 50%, #${mostRecurrentHex} 91%)`;
+  document.getElementById('albumPage').style.background = gradient;
 }
 
 window.onload = function () {
-  generateImage()
+  /* generateImage() */
 }
