@@ -859,6 +859,7 @@
                     src=""
                     alt="img-album"
                     crossorigin="anonymous"
+                    onload="start()"
                   />
                 </div>
                 <div
@@ -1079,7 +1080,7 @@
               <img id="photoFooter" src="./assets/imgs/search/image-1.jpeg" />
             </div>
             <div class="col-7 d-flex flex-column ms-3 px-0 pt-3">
-              <h4 id="songTitleFooter" class="m-0">Titolo</h4>
+              <h6 id="songTitleFooter" class="m-0">Titolo</h6>
               <p id="artistNameFooter" class="text-secondary">Artista</p>
             </div>
             <div class="col-1">
@@ -1111,8 +1112,12 @@
             </div>
             <div class="col-3"></div>
           </div>
-          <div class="row">
-            <span></span>
+          <div class="row align-items-center text-white">
+            <div class="col-9 baseBar position-relative">
+              <div id="greenBar" class="position-absolute"></div>
+              
+            </div>
+            <div id="durationSong" class="col-3"></div>
           </div>
         </div>
         <div

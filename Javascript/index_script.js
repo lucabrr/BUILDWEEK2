@@ -121,6 +121,7 @@ const transformPage = (a) => {
 
 //popolare pagina artista
 let popularSongContainer = document.getElementById('popularSongContainer');
+let greenBar = document.getElementById('greenBar');
 
 const populatePopularSong = (p) => {
     const songArray = Array.from(p);
@@ -151,7 +152,9 @@ const populatePopularSong = (p) => {
         }
         let allSongImg = popularSong.querySelector('.songContainer a, .songContainer div>a');
         allSongImg.addEventListener('click', () => {
+            greenBar.classList.remove('progressBar');
             playAudio(canzone)
+            greenBar.classList.add('progressBar');
              photoFooter = document.getElementById("photoFooter")
              songTitleFooter = document.getElementById("songTitleFooter")
              artistNameFooter = document.getElementById("artistNameFooter")

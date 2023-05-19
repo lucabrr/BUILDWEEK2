@@ -19,14 +19,12 @@ lastSongPlayed()
 
 const getImage = (p) => {
     albumDisplayImage.src = p.cover_medium;
-    /* albumDisplayImage.style.width = '250px';
-    albumDisplayImage.style.height = '250px'; */
-};
+    };
+
 
 const setBackgroundColor = (color) => {
     let gradient = `linear-gradient(0deg, #${color} 50%, rgba(43,43,43,1) 91%)`;
     document.getElementById('albumPage').style.background = gradient;
-    console.log("🚀 ~ file: albumPage.js:10 ~ setBackgroundColor ~ gradient:", gradient)
 };
 
 //titolo album
@@ -79,9 +77,11 @@ const populateAlbumSongs = (p) => {
         const playAudio = (song) => {
             let audio = new Audio(track.preview);
             audio.play();
+
              photoFooter = document.getElementById("photoFooter")
              songTitleFooter = document.getElementById("songTitleFooter")
              artistNameFooter = document.getElementById("artistNameFooter")
+            let durationFooter = document.getElementById('durationSong')
 
             photoFooter.src= track.album.cover_small
             songTitleFooter.innerText = track.title
@@ -90,10 +90,16 @@ const populateAlbumSongs = (p) => {
             localStorage.setItem("lastImg",photoFooter.src)
             localStorage.setItem("lastSong",songTitleFooter.innerText)
             localStorage.setItem("lastArtist",artistNameFooter.innerText)
+            durationSong.innerText = durationInMinutes
         }
         let allSongImg = trackDiv.querySelector('.songContainer a');
         allSongImg.addEventListener('click', () => {
+            greenBar.style.animation = 'none';
+            greenBar.offsetHeight;
+            greenBar.style.animation = null;
+            /* greenBar.classList.remove('progressBar'); */
             playAudio(track)
+            greenBar.classList.add('progressBar');
             });
     }); // fine primo forEach
 
@@ -123,11 +129,6 @@ const getAlbumInfo = (id) => {
             getTitle(album);
             getInterpolation(album);
             populateAlbumSongs(album.tracks.data);
-            /* getImage.onload = getHexColor();
-            let newBgColor = mostRecurrentHex;
-            console.log("🚀 ~ file: albumPage.js:4 ~ getImage ~ newBgColor:", newBgColor)
-    
-            setBackgroundColor(newBgColor); */
         })
         .catch((err) => console.log(err));
 };
