@@ -1,3 +1,25 @@
+//ultima canzone corrente footer
+let photoFooter = document.getElementById("photoFooter")
+let songTitleFooter = document.getElementById("songTitleFooter")
+let artistNameFooter = document.getElementById("artistNameFooter") 
+
+const lastSongPlayed = function(){
+    if(localStorage.getItem("lastImg")){
+      let lastImg = localStorage.getItem("lastImg")
+       let lastSong = localStorage.getItem("lastSong")
+          let lastArtist = localStorage.getItem("lastArtist")
+
+          photoFooter.src = lastImg
+            songTitleFooter.innerText = lastSong
+            artistNameFooter.innerText= lastArtist
+
+    }
+}
+lastSongPlayed()
+
+
+
+    
 let artistSongsContainer = document.getElementById("artistSongsContainer")
 //funzione distruttore pagina 1
 const destructionMain = () => {
@@ -147,13 +169,19 @@ const populatePopularSong = (p) => {
         let allSongImg = popularSong.querySelector('.songContainer a, .songContainer div>a');
         allSongImg.addEventListener('click', () => {
             playAudio(canzone)
-            let photoFooter = document.getElementById("photoFooter")
-            let songTitleFooter = document.getElementById("songTitleFooter")
-            let artistNameFooter = document.getElementById("artistNameFooter")
+             photoFooter = document.getElementById("photoFooter")
+             songTitleFooter = document.getElementById("songTitleFooter")
+             artistNameFooter = document.getElementById("artistNameFooter")
 
             photoFooter.src= canzone.album.cover_small
             songTitleFooter.innerText = canzone.title
             artistNameFooter.innerText= canzone.artist.name
+
+            localStorage.setItem("lastImg",photoFooter.src)
+            localStorage.setItem("lastSong",songTitleFooter.innerText)
+            localStorage.setItem("lastArtist",artistNameFooter.innerText)
+
+
             
             });
 
