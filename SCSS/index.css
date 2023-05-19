@@ -18,6 +18,12 @@ body nav #searchForJs {
 }
 body footer {
   height: 100px;
+  border-bottom: 2px solid black !important;
+  border-top: 2px solid black !important;
+  /*         .form-range{
+              margin: auto !important;
+              padding: auto !important;
+          } */
 }
 @media screen and (max-width: 767px) {
   body footer {
@@ -60,8 +66,16 @@ body footer .progressBarMobile {
   animation-duration: 30s;
   animation-timing-function: linear;
 }
-body footer ul.dropdown-menu input {
+body footer ul.dropdown-menu div {
   margin: 0 auto !important;
+}
+body footer button.dropdown-toggle {
+  color: white !important;
+  border: none !important;
+  background-color: transparent !important;
+}
+body footer .dropdown-toggle::after {
+  display: none !important;
 }
 body main > div.container-fluid.overflow-y-scroll {
   height: 850px;

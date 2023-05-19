@@ -28,6 +28,8 @@ body{
             bottom: 0;
         }
         height: 100px;
+        border-bottom: 2px solid black !important;
+        border-top: 2px solid black !important;
         #photoFooter{
             width: 80px;
             height: 80px;
@@ -59,9 +61,22 @@ body{
             animation-duration: 30s;
             animation-timing-function: linear;
         }
-        ul.dropdown-menu input{
+        ul.dropdown-menu div{
             margin: 0 auto !important;
         }
+        button.dropdown-toggle {
+            color: white !important;
+            border: none !important;
+            background-color: transparent !important;
+        }
+/*         .form-range{
+            margin: auto !important;
+            padding: auto !important;
+        } */
+        .dropdown-toggle::after {
+            display: none !important;
+          }
+          
     }
 
     main>div.container-fluid.overflow-y-scroll{
