@@ -90,7 +90,7 @@ const populateAlbumSongs = (p) => {
             localStorage.setItem("lastImg",photoFooter.src)
             localStorage.setItem("lastSong",songTitleFooter.innerText)
             localStorage.setItem("lastArtist",artistNameFooter.innerText)
-            durationSong.innerText = durationInMinutes
+            durationFooter.innerText = durationInMinutes
         }
         let allSongImg = trackDiv.querySelector('.songContainer a');
         allSongImg.addEventListener('click', () => {
@@ -101,7 +101,18 @@ const populateAlbumSongs = (p) => {
             playAudio(track)
             greenBar.classList.add('progressBar');
             greenBarMobile.classList.add('progressBarMobile');
+            buttonPlay.classList.add('d-none');
+            buttonPause.classList.remove('d-none');
             });
+        /* const pauseAudio = (song) => {
+            let audio = new Audio(track.preview);
+            audio.pause();
+        }
+        buttonPause.addEventListener('click', function(){
+            buttonPause.classList.add('d-none');
+            buttonPlay.classList.remove('d-none');
+            pauseAudio(audio);
+        }) */
     }); // fine primo forEach
 
 };

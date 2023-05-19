@@ -25,7 +25,7 @@ body footer {
 }
 @media screen and (max-width: 767px) {
   body footer {
-    bottom: 50px;
+    bottom: 45px;
     border-bottom: 2px solid black !important;
     border-top: 2px solid black !important;
   }
@@ -197,8 +197,6 @@ body main > div.container-fluid.overflow-y-scroll .card:hover {
     width: 100%;
   }
 }
-.songInsideAlbum:hover {
-  background-color: #3d3c3c;
 #containerTextFooterScroll {
   overflow: hidden;
 }
@@ -215,4 +213,17 @@ body main > div.container-fluid.overflow-y-scroll .card:hover {
   100% {
     transform: translateX(-100%);
   }
-}/*# sourceMappingURL=index.css.map */
+}
+.songInsideAlbum:hover {
+  background-color: #3d3c3c;
+}
+
+/* nav{
+    background-color: none !important;
+} */
+/* div.col-12 col-md-3.bg-black{
+    margin-bottom: 100px;
+} */
+/* @media screen and (min-width: 768px) {
+
+} *//*# sourceMappingURL=index.css.map */

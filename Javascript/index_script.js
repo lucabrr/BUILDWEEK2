@@ -5,6 +5,9 @@ let mostListenedArtistItaly = ["green-day", "linkin-park", "sum-41", "charlotte-
 let myCardImg = document.getElementById('myCardImg');
 let myCardTitle = document.getElementById('myCardTitle');
 let myCardArtist = document.getElementById('myCardArtist');
+let buttonPlay = document.getElementById('buttonPlay');
+let buttonPause = document.getElementById('buttonPause');
+
 const getRandomSong = () => {
     fetch(
         `https://striveschool-api.herokuapp.com/api/deezer/artist/${mostListenedArtistItaly[randomArtistDraw]}`
@@ -69,6 +72,8 @@ const getRandomSong = () => {
                 playAudio(newFirstSong)
                 greenBar.classList.add('progressBar');
                 greenBarMobile.classList.add('progressBarMobile');
+                buttonPlay.classList.add('d-none');
+                buttonPause.classList.remove('d-none');
                 });
             })
             .catch((err) => console.log(err));
@@ -254,10 +259,17 @@ const populatePopularSong = (p) => {
             localStorage.setItem("lastArtist",artistNameFooter.innerText)
             durationSong.innerText = durationInMinutes
 
+            buttonPlay.classList.add('d-none');
+            buttonPause.classList.remove('d-none');
+
 
             
             });
-
+        /* buttonPause.addEventListener('click', function(){
+            buttonPause.classList.add('d-none');
+            buttonPlay.classList.remove('d-none');
+            audio.pause();
+        }) */
         createAlbumCard(canzone);
         removeSameObj(allAlbumIds);
     }); // fine primo forEach
@@ -289,4 +301,9 @@ const createLikedSection = (p) => {
     `;
 };
 
-
+buttonPause.addEventListener('click', function() {
+    buttonPause.classList.add('d-none');
+    buttonPlay.classList.remove('d-none');
+    greenBar.style.animationPlayState = 'paused';
+    greenBarMobile.style.animationPlayState = 'paused';
+})
