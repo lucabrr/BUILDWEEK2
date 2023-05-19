@@ -60,6 +60,13 @@ const populateAlbumSongs = (p) => {
         const playAudio = (song) => {
             let audio = new Audio(track.preview);
             audio.play();
+            let photoFooter = document.getElementById("photoFooter")
+            let songTitleFooter = document.getElementById("songTitleFooter")
+            let artistNameFooter = document.getElementById("artistNameFooter")
+
+            photoFooter.src= track.album.cover_small
+            songTitleFooter.innerText = track.title
+            artistNameFooter.innerText= track.artist.name
         }
         let allSongImg = trackDiv.querySelector('.songContainer a');
         allSongImg.addEventListener('click', () => {
