@@ -1,3 +1,91 @@
+//pesco canzone random per pagina principale
+let randomArtistDraw = Math.floor(Math.random() * 4) + 1;
+let mostListenedArtistItaly = ["green-day", "linkin-park", "sum-41", "charlotte-de-witte", "dua-lipa"];
+
+let myCardImg = document.getElementById('myCardImg');
+let myCardTitle = document.getElementById('myCardTitle');
+let myCardArtist = document.getElementById('myCardArtist');
+const getRandomSong = () => {
+    fetch(
+        `https://striveschool-api.herokuapp.com/api/deezer/artist/${mostListenedArtistItaly[randomArtistDraw]}`
+      )
+        .then((res) => {
+          if (res.ok) {
+            console.log("tutto ok");
+            return res.json();
+          } else {
+            throw new Error("qualcosa è andato storto nel trovare il cantante");
+          }
+        })
+        .then((obj) => {
+          console.log("artista trovato randomicamente", obj);
+          //ci ritorna l'artista
+          fetch(obj.tracklist)
+            .then((tracklist) => {
+              if (tracklist.ok) {
+                return tracklist.json();
+              } else {
+                throw new Error("qualcosa è andato storto");
+              }
+            })
+            .then((firstSong) => {
+              console.log("canzone trovata randomicamente", firstSong.data[0])
+              console.log(firstSong.data[0].album.cover_medium)
+              let newFirstSong = firstSong.data[0];
+              myCardImg.src = newFirstSong.album.cover_medium;
+              myCardTitle.innerText = newFirstSong.title;
+              myCardArtist.innerText = newFirstSong.artist.name;
+              //colleghiamo il paly alla canzone
+              const playAudio = (newFirstSong) => {
+                let audio = new Audio(newFirstSong.preview);
+                audio.play();
+    
+                 photoFooter = document.getElementById("photoFooter")
+                 songTitleFooter = document.getElementById("songTitleFooter")
+                 artistNameFooter = document.getElementById("artistNameFooter")
+                let durationFooter = document.getElementById('durationSong')
+                const secondsToMinutes = (seconds) => {
+                    const minutes = Math.floor(seconds / 60);
+                    const remainingSeconds = seconds % 60;
+                    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+                };
+                let durationInMinutes = secondsToMinutes(newFirstSong.duration);
+    
+                photoFooter.src= newFirstSong.album.cover_small
+                songTitleFooter.innerText = newFirstSong.title
+                artistNameFooter.innerText= newFirstSong.artist.name
+    
+                localStorage.setItem("lastImg",photoFooter.src)
+                localStorage.setItem("lastSong",songTitleFooter.innerText)
+                localStorage.setItem("lastArtist",artistNameFooter.innerText)
+                durationSong.innerText = durationInMinutes
+            }
+            let myCardPlay = document.getElementById('myCardPlay');
+            myCardPlay.addEventListener('click', () => {
+                greenBar.style.animation = 'none';
+                greenBar.offsetHeight;
+                greenBar.style.animation = null;
+                /* greenBar.classList.remove('progressBar'); */
+                playAudio(newFirstSong)
+                greenBar.classList.add('progressBar');
+                greenBarMobile.classList.add('progressBarMobile');
+                });
+            })
+            .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
+};
+
+window.onload = () => {
+    getRandomSong();
+};
+console.log("🚀 ~ file: index_script.js:38 ~ getRandomSong():", getRandomSong())
+
+
+
+
+
+    
 let artistSongsContainer = document.getElementById("artistSongsContainer")
 //funzione distruttore pagina 1
 const destructionMain = () => {
@@ -117,6 +205,7 @@ const transformPage = (a) => {
 //popolare pagina artista
 let popularSongContainer = document.getElementById('popularSongContainer');
 let greenBar = document.getElementById('greenBar');
+let greenBarMobile = document.getElementById('greenBarMobile');
 
 const populatePopularSong = (p) => {
     const songArray = Array.from(p);
@@ -150,9 +239,11 @@ const populatePopularSong = (p) => {
             greenBar.classList.remove('progressBar');
             playAudio(canzone)
             greenBar.classList.add('progressBar');
+            greenBarMobile.classList.add('progressBarMobile');
              photoFooter = document.getElementById("photoFooter")
              songTitleFooter = document.getElementById("songTitleFooter")
              artistNameFooter = document.getElementById("artistNameFooter")
+            let durationFooter = document.getElementById('durationSong')
 
             photoFooter.src= canzone.album.cover_small
             songTitleFooter.innerText = canzone.title
@@ -161,6 +252,7 @@ const populatePopularSong = (p) => {
             localStorage.setItem("lastImg",photoFooter.src)
             localStorage.setItem("lastSong",songTitleFooter.innerText)
             localStorage.setItem("lastArtist",artistNameFooter.innerText)
+            durationSong.innerText = durationInMinutes
 
 
             

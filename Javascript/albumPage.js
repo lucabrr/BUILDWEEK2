@@ -100,6 +100,7 @@ const populateAlbumSongs = (p) => {
             /* greenBar.classList.remove('progressBar'); */
             playAudio(track)
             greenBar.classList.add('progressBar');
+            greenBarMobile.classList.add('progressBarMobile');
             });
     }); // fine primo forEach
 
