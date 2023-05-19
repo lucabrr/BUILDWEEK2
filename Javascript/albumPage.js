@@ -58,7 +58,7 @@ const populateAlbumSongs = (p) => {
         let durationInMinutes = secondsToMinutes(track.duration);
         trackDiv.innerHTML = 
         `
-        <div class="row songContainer mb-2">
+        <div class="row songContainer mb-2 songInsideAlbum">
             <div class="col-1 d-flex justify-content-center align-items-center">${counter}</div>
             <div class="col-11 col-md-5 d-flex flex-column align-items-start">
                 <a data-id-track="${track.id}" href="#" class="">${track.title}</a>

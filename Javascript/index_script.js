@@ -1,10 +1,3 @@
-//aggiungiamo le img ai boxes
-// let allBoxes = document.querySelectorAll(".box .card-body")
-
-// console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",allBoxes);
-
-// template = <img src="./assets/imgs/search/images-1.jpeg"></img>
-    
 let artistSongsContainer = document.getElementById("artistSongsContainer")
 //funzione distruttore pagina 1
 const destructionMain = () => {
@@ -138,7 +131,7 @@ const populatePopularSong = (p) => {
         let durationInMinutes = secondsToMinutes(canzone.duration);
         popularSong.innerHTML = 
         `
-        <div class="row songContainer my-2">
+        <div class="row songContainer my-2 songInsideAlbum">
             <div class="col-1 d-flex align-items-center">${counter}</div>
             <a data-id-song="${canzone.id}" href="#" class="col-2 d-flex align-items-center"><img src="${canzone.album.cover_small}"/></a>
             <div class="col-5 d-flex align-items-center"><a data-id-song="${canzone.id}" href="#">${canzone.title}</a></div>
@@ -195,7 +188,7 @@ const createLikedSection = (p) => {
     songYouLike.innerHTML= 
     `
         <div class="row">
-            <img src="${p.picture_small}" class="col-4 rounded-circle songYouLikeImg" alt="img" >
+            <img src="${p.picture_small}" class="col-4 rounded-circle songYouLikeImg " alt="img" >
             <div class="col-8">
                 <p>hai messo mi piace a ${randomNumber} brani</p>
                 <p>Di ${p.name}</p>
