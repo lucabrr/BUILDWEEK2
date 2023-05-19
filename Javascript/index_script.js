@@ -1,7 +1,9 @@
+//aggiungiamo le img ai boxes
+// let allBoxes = document.querySelectorAll(".box .card-body")
 
+// console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",allBoxes);
 
-
-
+// template = <img src="./assets/imgs/search/images-1.jpeg"></img>
     
 let artistSongsContainer = document.getElementById("artistSongsContainer")
 //funzione distruttore pagina 1

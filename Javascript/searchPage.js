@@ -7,3 +7,7 @@ searchButton.addEventListener("click", () => {
     element.classList.add("destruction");
   });
 });
+
+
+
+
