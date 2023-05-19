@@ -1,21 +1,4 @@
-//ultima canzone corrente footer
-let photoFooter = document.getElementById("photoFooter")
-let songTitleFooter = document.getElementById("songTitleFooter")
-let artistNameFooter = document.getElementById("artistNameFooter") 
 
-const lastSongPlayed = function(){
-    if(localStorage.getItem("lastImg")){
-      let lastImg = localStorage.getItem("lastImg")
-       let lastSong = localStorage.getItem("lastSong")
-          let lastArtist = localStorage.getItem("lastArtist")
-
-          photoFooter.src = lastImg
-            songTitleFooter.innerText = lastSong
-            artistNameFooter.innerText= lastArtist
-
-    }
-}
-lastSongPlayed()
 
 
 

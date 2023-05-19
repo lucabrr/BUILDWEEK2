@@ -1,3 +1,22 @@
+//ultima canzone corrente footer
+let photoFooter = document.getElementById("photoFooter")
+let songTitleFooter = document.getElementById("songTitleFooter")
+let artistNameFooter = document.getElementById("artistNameFooter") 
+
+const lastSongPlayed = function(){
+    if(localStorage.getItem("lastImg")){
+      let lastImg = localStorage.getItem("lastImg")
+       let lastSong = localStorage.getItem("lastSong")
+          let lastArtist = localStorage.getItem("lastArtist")
+
+          photoFooter.src = lastImg
+            songTitleFooter.innerText = lastSong
+            artistNameFooter.innerText= lastArtist
+
+    }
+}
+lastSongPlayed()
+
 const getImage = (p) => {
     albumDisplayImage.src = p.cover_medium;
     /* albumDisplayImage.style.width = '250px';
@@ -60,13 +79,17 @@ const populateAlbumSongs = (p) => {
         const playAudio = (song) => {
             let audio = new Audio(track.preview);
             audio.play();
-            let photoFooter = document.getElementById("photoFooter")
-            let songTitleFooter = document.getElementById("songTitleFooter")
-            let artistNameFooter = document.getElementById("artistNameFooter")
+             photoFooter = document.getElementById("photoFooter")
+             songTitleFooter = document.getElementById("songTitleFooter")
+             artistNameFooter = document.getElementById("artistNameFooter")
 
             photoFooter.src= track.album.cover_small
             songTitleFooter.innerText = track.title
             artistNameFooter.innerText= track.artist.name
+
+            localStorage.setItem("lastImg",photoFooter.src)
+            localStorage.setItem("lastSong",songTitleFooter.innerText)
+            localStorage.setItem("lastArtist",artistNameFooter.innerText)
         }
         let allSongImg = trackDiv.querySelector('.songContainer a');
         allSongImg.addEventListener('click', () => {
